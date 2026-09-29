@@ -1,67 +1,22 @@
-# 🌾 AgriLink v2.0
+AgriLink — Connecting Farmers & Agricultural Workers
 
-**Connecting Farmers and Agricultural Workers in Rural Areas**
-
----
-
-## 📁 Project Structure
-
-```
-agrilink/
-├── server.js
-├── package.json
-├── models/
-│   ├── Worker.js       ← name, phone, skill, location, available (boolean)
-│   └── Job.js          ← workType, location, phone
-├── routes/
-│   ├── workers.js      ← GET (with filters), POST
-│   └── jobs.js         ← GET (with filters), POST
-├── public/
-│   ├── css/style.css
-│   └── js/
-│       ├── utils.js    ← showToast, formatDate, buildQuery
-│       ├── worker.js   ← registration form + jobs board
-│       └── farmer.js   ← search workers + post job
-└── views/
-    ├── index.html      ← Home / role selection
-    ├── worker.html     ← Register tab + Jobs Board tab
-    └── farmer.html     ← Find Workers tab + Post Job tab
-```
+A simple, mobile-friendly web application that connects farmers with agricultural workers in rural areas — no login required, no complexity, just a direct connection.
 
 ---
+In rural areas, farmers often struggle to find skilled workers quickly, and workers have no easy way to show their availability. AgriLink solves this by providing a simple platform where:
 
-## 🚀 Setup
+Workers can register their skills and mark availability
+Farmers can search for workers and post job requirements
+Workers can browse jobs posted by farmers and call them directly
 
-```bash
-cd agrilink
-npm install
-# Make sure MongoDB is running
-npm start          # production
-npm run dev        # with nodemon (auto-restart)
-```
+This project was built with a focus on simplicity.
 
-Open: http://localhost:3000
+Tech Stack : 
+Backend	-   Node.js + Express.js
+Database -	MongoDB + Mongoose
+Frontend -	HTML, CSS, Vanilla JavaScript
 
----
-
-## 🔌 API Reference
-
-### Workers
-| Method | Endpoint         | Query Params                          |
-|--------|-----------------|---------------------------------------|
-| GET    | /api/workers    | ?location= &skill= &available=true/false |
-| POST   | /api/workers    | body: { name, phone, skill, location, available } |
-
-### Jobs
-| Method | Endpoint      | Query Params              |
-|--------|--------------|---------------------------|
-| GET    | /api/jobs    | ?location= &workType=     |
-| POST   | /api/jobs    | body: { workType, location, phone } |
-
----
-
-## ✨ Features (v2)
-
+Features
 - Worker registers with **availability status** (Available / Unavailable)
 - **Farmer page** — search workers by location + skill + availability chips
 - **Worker page** — "Jobs Board" tab shows all farmer-posted jobs
@@ -69,6 +24,3 @@ Open: http://localhost:3000
 - Real-time result count shown after every search
 - Mobile-first, no login required
 
----
-
-🌱 *Built for rural agricultural communities — simple, fast, free.*
