@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriLink – Worker</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <span class="header-logo">🌾</span>
+    <div>
+      <div class="header-title">AgriLink</div>
+      <div class="header-sub">Worker Portal</div>
+    </div>
+    <a href="/" class="back-btn">← Home</a>
+  </header>
+
+  <div class="container">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-register">
+        👷 Register
+      </button>
+      <button class="tab-btn" data-tab="tab-jobs">
+        📋 Jobs Board
+      </button>
+    </div>
+
+    <!-- Tab: Register -->
+    <div id="tab-register" class="tab-content active">
+      <div class="card">
+        <div class="section-title"><span class="icon">👷</span> Register as Worker</div>
+        <p style="font-size:.92rem;color:var(--text-muted);margin-bottom:20px;">
+          Fill in your details so farmers can find and contact you.
+        </p>
+
+        <form id="workerForm">
+
+          <div class="form-group">
+            <label for="name">Your Full Name</label>
+            <input type="text" id="name" placeholder="e.g. Ramesh Kumar"
+                   autocomplete="name" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" placeholder="e.g. 9876543210"
+                   pattern="[0-9]{10}" maxlength="10" inputmode="numeric"
+                   autocomplete="tel" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="skill">Your Main Skill</label>
+            <select id="skill" required>
+              <option value="">-- Select a Skill --</option>
+              <option> Harvesting</option>
+              <option> Tractor Driving</option>
+              <option> Irrigation Work</option>
+              <option> Sowing / Planting</option>
+              <option> Weeding</option>
+              <option> Pesticide Spraying</option>
+              <option> Fruit Picking</option>
+              <option> Land Preparation</option>
+              <option> General Farm Labour</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Village / Area Name</label>
+            <input type="text" id="location" placeholder="e.g. Shivpur, Nashik" required/>
+          </div>
+
+          <!-- Availability toggle -->
+          <div class="form-group">
+            <label class="avail-toggle">
+              <input type="checkbox" id="available" checked/>
+              <span>I am currently available for work</span>
+            </label>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-amber">
+             Register as Worker
+          </button>
+
+        </form>
+      </div>
+
+      <div class="card" style="background:var(--green-pale);border-color:var(--green-light);">
+        <p style="font-size:.88rem;color:var(--green);text-align:center;">
+          🧑‍🌾 Are you a <strong>Farmer</strong>?
+          <br/><a href="/farmer" style="color:var(--green);font-weight:700;">Go to Farmer Page →</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Tab: Jobs Board -->
+    <div id="tab-jobs" class="tab-content">
+      <div class="section-title"><span class="icon">📋</span> Jobs Posted by Farmers</div>
+
+      <!-- Search box -->
+      <div class="search-box">
+        <div class="search-row">
+          <input type="text" id="jobLocSearch"  placeholder="🔍 Filter by location…"/>
+          <input type="text" id="jobTypeSearch" placeholder="🔍 Filter by work type…"/>
+        </div>
+        <div class="filter-row">
+          <button id="jobSearchBtn" class="search-btn">Search</button>
+          <button id="jobClearBtn"  class="clear-btn">Clear</button>
+          <span id="jobCount" class="result-count"></span>
+        </div>
+      </div>
+
+      <div id="jobList"><!-- rendered by JS --></div>
+    </div>
+
+  </div>
+
+  <footer class="footer">🌱 AgriLink &nbsp;|&nbsp; Empowering Rural Agriculture</footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/worker.js"></script>
+</body>
+</html>

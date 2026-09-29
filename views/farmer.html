@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriLink – Farmer</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <span class="header-logo">🌾</span>
+    <div>
+      <div class="header-title">AgriLink</div>
+      <div class="header-sub">Farmer Dashboard</div>
+    </div>
+    <a href="/" class="back-btn">← Home</a>
+  </header>
+
+  <div class="container">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-workers">👷 Workers</button>
+      <button class="tab-btn"        data-tab="tab-post">📢 Post Job</button>
+    </div>
+
+    <!-- Tab: View Workers -->
+    <div id="tab-workers" class="tab-content active">
+      <div class="section-title"><span class="icon">👷</span> Find Workers</div>
+
+      <!-- Search & filter box -->
+      <div class="search-box">
+        <div class="search-row">
+          <input type="text" id="workerLocSearch"   placeholder="🔍 Search by location…"/>
+          <input type="text" id="workerSkillSearch" placeholder="🔍 Search by skill…"/>
+        </div>
+
+        <!-- Availability chips -->
+        <div class="filter-row" style="margin-bottom:10px;">
+          <span style="font-size:.82rem;font-weight:600;color:var(--soil-light);">Availability:</span>
+          <button class="filter-chip avail-filter-chip" data-avail="">All</button>
+          <button class="filter-chip avail-filter-chip" data-avail="true">✅ Available</button>
+          <button class="filter-chip avail-filter-chip" data-avail="false">🔴 Busy</button>
+        </div>
+
+        <div class="filter-row">
+          <button id="workerSearchBtn" class="search-btn">Search</button>
+          <button id="workerClearBtn"  class="clear-btn">Clear</button>
+          <span id="workerCount" class="result-count"></span>
+        </div>
+      </div>
+
+      <div id="workerList"><!-- rendered by JS --></div>
+    </div>
+
+    <!-- Tab: Post Job -->
+    <div id="tab-post" class="tab-content">
+      <div class="section-title"><span class="icon">📢</span> Post a Job</div>
+
+      <div class="card">
+        <p style="font-size:.92rem;color:var(--text-muted);margin-bottom:20px;">
+          Describe the work you need. Workers in your area will see it and call you.
+        </p>
+
+        <form id="jobForm">
+
+          <div class="form-group">
+            <label for="workType">Type of Work Needed</label>
+            <select id="workType" required>
+              <option value="">-- Select Work Type --</option>
+              <option> Harvesting</option>
+              <option> Tractor Driving</option>
+              <option> Irrigation Work</option>
+              <option> Sowing / Planting</option>
+              <option> Weeding</option>
+              <option> Pesticide Spraying</option>
+              <option> Fruit Picking</option>
+              <option> Land Preparation</option>
+              <option> General Farm Labour</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="jobLocation">Farm Location (Village / Area)</label>
+            <input type="text" id="jobLocation" placeholder="e.g. Kopargaon, Ahmednagar" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="jobPhone">Your Mobile Number</label>
+            <input type="tel" id="jobPhone" placeholder="e.g. 9876543210"
+                   pattern="[0-9]{10}" maxlength="10" inputmode="numeric" required/>
+          </div>
+
+          <button type="submit" id="postBtn" class="btn btn-green">📢 Post Job</button>
+
+        </form>
+      </div>
+
+      <div class="card" style="background:var(--amber-pale);border-color:var(--amber-light);">
+        <p style="font-size:.85rem;color:var(--amber);text-align:center;">
+          💡 Once posted, your job will appear in the <strong>Workers' Jobs Board</strong> so workers can contact you directly.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">🌱 AgriLink &nbsp;|&nbsp; Empowering Rural Agriculture</footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/farmer.js"></script>
+</body>
+</html>
